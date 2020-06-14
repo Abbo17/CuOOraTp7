@@ -10,7 +10,7 @@ SocialQuestionsOfInterest >> questionsOfInterest: aUser [
 	temp1 := OrderedCollection new.
 	temp3 := aUser following flatCollect:[ :follow |  follow questions,follow questionsOfInterest ].			
 	temp3 := self deleteMyQuestions: temp3 user:aUser .
-	temp2 := temp3 asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
+	temp2 := self orderQuestionsByPositiveVotes: temp3.
 	temp1 := temp2 first: (10 min: temp2 size).
 	
 	^temp1 
