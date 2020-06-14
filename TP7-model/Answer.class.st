@@ -14,9 +14,3 @@ Answer class >> new: anAnswer user: aUser [
 		user: aUser;
 		yourself
 ]
-
-{ #category : #initialize }
-Answer >> initialize [
-	votes := OrderedCollection new.
-	timestamp := DateAndTime now.
-]
