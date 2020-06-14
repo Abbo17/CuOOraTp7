@@ -64,12 +64,14 @@ UserTest >> setUp [
 { #category : #testing }
 UserTest >> testNegativeTopicsRetrieveQuestions [
 	| questionUser2TopicOO2 |
-	user1 defineInterestInNegativeTopics.
-	user2 defineInterestInNegativeTopics.
-	user3 defineInterestInNegativeTopics.
-	self assert: user1 questionsOfInterest size equals: 3.
+	user1 defineQuestionOfInterestStrategy: (NegativeQuestionsOfInterest  new).
+	user2 defineQuestionOfInterestStrategy: (NegativeQuestionsOfInterest  new).
+	user3 defineQuestionOfInterestStrategy: (NegativeQuestionsOfInterest  new).
+	
+	self assert: (user1 questionsOfInterest) size equals: 3.
 	self assert: user2 questionsOfInterest size equals: 1.
 	self assert: user3 questionsOfInterest size equals: 0.
+	
 	questionUser2TopicOO2 := Question
 		newWithTitle: 'Which bad smell...?'
 		description: ''
@@ -113,9 +115,9 @@ UserTest >> testSocialRetrieveQuestions [
 UserTest >> testTopicsRetrieveQuestions [
 	| questionUser2TopicOO2 |
 	
-	user1 defineInterestInTopics.
-	user2 defineInterestInTopics.
-	user3 defineInterestInTopics.
+	user1 defineQuestionOfInterestStrategy: TopicsQuestionsOfInterest new.
+	user2 defineQuestionOfInterestStrategy: TopicsQuestionsOfInterest new.
+	user3 defineQuestionOfInterestStrategy: TopicsQuestionsOfInterest new.
 	
 	self assert:(user1 questionsOfInterest ) size equals: 3.
 	self assert: (user2 questionsOfInterest) size equals: 1.
