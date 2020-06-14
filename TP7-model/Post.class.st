@@ -33,18 +33,12 @@ Post >> initialize [
 
 { #category : #'as yet unclassified' }
 Post >> negativeVotes [
-	| r |
-	r := OrderedCollection new.
-	votes do:[:vote | vote isLike ifFalse:[r add: vote]].
-	^r
+	^votes select:[:vote | vote isLike not]
 ]
 
 { #category : #'as yet unclassified' }
 Post >> positiveVotes [
-	| r |
-	r := OrderedCollection new.
-	votes do:[:vote | vote isLike ifTrue:[r add: vote]].
-	^r
+	^votes select:[:vote | vote isLike ].
 ]
 
 { #category : #accessing }
