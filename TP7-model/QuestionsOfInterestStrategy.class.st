@@ -14,6 +14,11 @@ QuestionsOfInterestStrategy >> orderQuestionsByPositiveVotes: aColection [
 	^aColection asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
 ]
 
+{ #category : #'as yet unclassified' }
+QuestionsOfInterestStrategy >> processRequest: aColection [
+		^aColection last: (10 min: aColection size).
+]
+
 { #category : #accessing }
 QuestionsOfInterestStrategy >> questionsOfInterest: aUser [
 	^self subclassResponsibility 

@@ -11,6 +11,6 @@ NegativeQuestionsOfInterest >> questionsOfInterest: aUser [
 	temp4 := 	aUser topics flatCollect:[ :topic | topic questions ].
 	temp4 := self deleteMyQuestions: temp4 user: aUser.
 	temp2 := temp4 asSortedCollection:[ :a :b | a negativeVotes  size > b negativeVotes size ].
-	temp1 := temp2 last: (10 min: temp2 size).
+	temp1 := 	self processRequest: temp2.
 	^temp1 
 ]
