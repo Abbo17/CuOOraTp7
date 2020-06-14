@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 NegativeQuestionsOfInterest >> questionsOfInterest: aUser [
-	| temp1 temp2 temp3 temp4 |
+	| temp1 temp2 temp4 |
 	temp1 := OrderedCollection new.
 	temp4 := OrderedCollection new.
 	aUser topics do:[ :topic | temp4 addAll: topic questions ].
