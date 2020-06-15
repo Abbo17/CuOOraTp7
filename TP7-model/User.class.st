@@ -3,7 +3,6 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'questions',
-		'answers',
 		'username',
 		'password',
 		'topics',
@@ -23,12 +22,6 @@ User class >> username: aUsername password: aPassword [
 ]
 
 { #category : #accessing }
-User >> addAnswer: anAnswer [
-	answers add: anAnswer 
-
-]
-
-{ #category : #accessing }
 User >> addQuestion: aQuestion [
 	questions add: aQuestion
 ]
@@ -42,11 +35,6 @@ User >> addTopic: aTopic [
 { #category : #accessing }
 User >> addVote: aVote [
 	votes add: aVote
-]
-
-{ #category : #accessing }
-User >> answers [
-	^ answers
 ]
 
 { #category : #'as yet unclassified' }
@@ -66,9 +54,7 @@ User >> following [
 
 { #category : #initialize }
 User >> initialize [
-
 	questions := OrderedCollection new.  
-	answers := OrderedCollection new. 
 	topics := OrderedCollection new. 
 	following := OrderedCollection new. 
 	votes := OrderedCollection new.
