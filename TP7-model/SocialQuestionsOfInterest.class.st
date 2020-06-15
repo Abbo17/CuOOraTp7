@@ -6,12 +6,7 @@ Class {
 
 { #category : #accessing }
 SocialQuestionsOfInterest >> questionsOfInterest: aUser [
-	| temp1 temp2 temp3 |
-	temp1 := OrderedCollection new.
+	| temp3 |
 	temp3 := aUser following flatCollect:[ :follow |  follow questions,follow questionsOfInterest ].			
-	temp3 := self deleteMyQuestions: temp3 user:aUser .
-	temp2 := self orderQuestionsByPositiveVotes: temp3.
-	temp1 := 	self processRequest: temp2.
-	
-	^temp1 
+	^self processRequest: (self orderQuestionsByPositiveVotes: (self deleteMyQuestions: temp3 user:aUser)).
 ]
