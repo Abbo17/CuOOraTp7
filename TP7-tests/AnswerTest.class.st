@@ -9,7 +9,7 @@ Class {
 
 { #category : #setup }
 AnswerTest >> setUp [
-	answerWithoutVotes := Post new:'An answer'  user:(User new).
+	answerWithoutVotes := Answer new:'An answer'  user:(User new).
 ]
 
 { #category : #testing }

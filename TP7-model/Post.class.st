@@ -10,14 +10,6 @@ Class {
 	#category : #'TP7-model'
 }
 
-{ #category : #'instance creation' }
-Post class >> new: anPost user: aUser [ 
-	^ self new
-		description: anPost;
-		user: aUser;
-		yourself
-]
-
 { #category : #adding }
 Post >> addVote: aVote [
 	votes add: aVote
