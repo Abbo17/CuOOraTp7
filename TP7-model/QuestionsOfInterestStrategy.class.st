@@ -11,7 +11,7 @@ QuestionsOfInterestStrategy >> deleteMyQuestions: aCollection user: aUser [
 
 { #category : #'as yet unclassified' }
 QuestionsOfInterestStrategy >> orderQuestionsByPositiveVotes: aColection [
-	^aColection asSortedCollection:[ :a :b | a positiveVotes size > b positiveVotes size ].
+	^aColection asSortedCollection:[ :a :b | a positiveVotesAmount > b positiveVotesAmount ].
 ]
 
 { #category : #'as yet unclassified' }

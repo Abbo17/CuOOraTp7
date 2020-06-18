@@ -37,8 +37,18 @@ Post >> negativeVotes [
 ]
 
 { #category : #'as yet unclassified' }
+Post >> negativeVotesAmount [
+	^ self negativeVotes size
+]
+
+{ #category : #'as yet unclassified' }
 Post >> positiveVotes [
 	^votes select:[:vote | vote isLike ].
+]
+
+{ #category : #'as yet unclassified' }
+Post >> positiveVotesAmount [
+	^ self positiveVotes size
 ]
 
 { #category : #accessing }
