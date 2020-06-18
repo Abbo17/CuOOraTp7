@@ -31,6 +31,11 @@ Post >> initialize [
 	timestamp := DateAndTime now.
 ]
 
+{ #category : #testing }
+Post >> isMyPost: aUser [
+	^ user = aUser
+]
+
 { #category : #'as yet unclassified' }
 Post >> negativeVotes [
 	^votes select:[:vote | vote isLike not]

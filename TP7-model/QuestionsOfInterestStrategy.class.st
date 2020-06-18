@@ -6,7 +6,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 QuestionsOfInterestStrategy >> deleteMyQuestions: aCollection user: aUser [
-	^ aCollection reject:[:q | q user = aUser].
+	^ aCollection reject:[:q | q isMyPost: aUser].
 ]
 
 { #category : #'as yet unclassified' }
