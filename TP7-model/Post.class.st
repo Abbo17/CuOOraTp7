@@ -37,6 +37,11 @@ Post >> isMyPost: aUser [
 ]
 
 { #category : #'as yet unclassified' }
+Post >> lessThanDays: days [
+	^ (DateAndTime now - timestamp) asDays < days
+]
+
+{ #category : #'as yet unclassified' }
 Post >> negativeVotes [
 	^votes select:[:vote | vote isLike not]
 ]

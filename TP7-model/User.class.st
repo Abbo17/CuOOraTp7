@@ -52,6 +52,11 @@ User >> following [
 	^ following
 ]
 
+{ #category : #'as yet unclassified' }
+User >> followingQuestions [
+	^ following flatCollect:[ :follow |  follow questions,follow questionsOfInterest ].
+]
+
 { #category : #initialize }
 User >> initialize [
 	questions := OrderedCollection new.  

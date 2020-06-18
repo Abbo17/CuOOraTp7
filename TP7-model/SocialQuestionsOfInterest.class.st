@@ -7,6 +7,6 @@ Class {
 { #category : #accessing }
 SocialQuestionsOfInterest >> questionsOfInterest: aUser [
 	| questions |
-	questions := aUser following flatCollect:[ :follow |  follow questions,follow questionsOfInterest ].			
+	questions := aUser followingQuestions.		
 	^self processRequest: (self orderQuestionsByPositiveVotes: (self deleteMyQuestions: questions user:aUser)).
 ]
