@@ -86,6 +86,11 @@ User >> topics [
 	^ topics
 ]
 
+{ #category : #'as yet unclassified' }
+User >> topicsQuestions [
+	^ topics flatCollect:[ :topic | topic questions ].
+]
+
 { #category : #accessing }
 User >> username [
 	^ username
