@@ -5,8 +5,6 @@ Class {
 }
 
 { #category : #accessing }
-SocialQuestionsOfInterest >> questionsOfInterest: aUser [
-	| questions |
-	questions := aUser followingQuestions.		
-	^self processRequest: (self orderQuestionsByPositiveVotes: (self deleteMyQuestions: questions user:aUser)).
+SocialQuestionsOfInterest >> getQuestions: aUser [
+	^ aUser followingQuestions.
 ]

@@ -10,6 +10,16 @@ QuestionsOfInterestStrategy >> deleteMyQuestions: aCollection user: aUser [
 ]
 
 { #category : #'as yet unclassified' }
+QuestionsOfInterestStrategy >> getQuestions: aUser [
+	^ self subclassResponsibility
+]
+
+{ #category : #'as yet unclassified' }
+QuestionsOfInterestStrategy >> orderQuestions: questions [
+	^ self orderQuestionsByPositiveVotes: questions
+]
+
+{ #category : #'as yet unclassified' }
 QuestionsOfInterestStrategy >> orderQuestionsByPositiveVotes: aColection [
 	^aColection asSortedCollection:[ :a :b | a positiveVotesAmount > b positiveVotesAmount ].
 ]
@@ -21,5 +31,7 @@ QuestionsOfInterestStrategy >> processRequest: aColection [
 
 { #category : #accessing }
 QuestionsOfInterestStrategy >> questionsOfInterest: aUser [
-	^self subclassResponsibility 
+	|questions|
+	questions := self getQuestions: aUser.
+	^ self processRequest: (self orderQuestions: (self deleteMyQuestions: questions user: aUser)).
 ]
